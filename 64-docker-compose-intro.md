@@ -77,7 +77,7 @@ portfolio-compose/
 | `db/init.sql` | Creates and populates the PostgreSQL table |
 | `README.md` | Project documentation |
 
-![Project Structure](64-docker-compose-intro/01-project-structure.png)
+![Project Structure](/screenshots/01-project-structure.png)
 
 ---
 
@@ -102,7 +102,7 @@ pgdata
 
 This allows database data to persist even if the database container is recreated.
 
-![Docker Compose Configuration](64-docker-compose-intro/02-docker-compose-file.png)
+![Docker Compose Configuration](/screenshots/02-docker-compose-file.png)
 
 ---
 
@@ -216,7 +216,7 @@ The build completed successfully and produced the web application image:
 portfolio-compose-portfolio-web
 ```
 
-![Docker Compose Build](64-docker-compose-intro/03-docker-compose-build.png)
+![Docker Compose Build](/screenshots/03-docker-compose-build.png)
 
 ---
 
@@ -276,7 +276,7 @@ The web container exposes:
 0.0.0.0:8084 -> 80/tcp
 ```
 
-![Docker Compose Services](64-docker-compose-intro/04-docker-compose-ps.png)
+![Docker Compose Services](/screenshots/04-docker-compose-ps.png)
 
 ---
 
@@ -296,7 +296,7 @@ http://192.168.1.16:8084
 
 The application displays the DevOps portfolio homepage.
 
-![Portfolio Homepage](64-docker-compose-intro/05-portfolio-homepage.png)
+![Portfolio Homepage](/screenshots/05-portfolio-homepage.png)
 
 ---
 
@@ -323,7 +323,7 @@ ORDER BY id DESC;
 
 The database-backed project cards are then displayed dynamically on the portfolio.
 
-![Portfolio Projects](64-docker-compose-intro/06-portfolio-projects.png)
+![Portfolio Projects](/screenshots/06-portfolio-projects.png)
 
 ---
 

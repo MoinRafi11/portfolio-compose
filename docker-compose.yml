@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: portfolio-web
+    container_name: portfolio-compose-web
 
     ports:
       - "8084:80"
@@ -33,7 +33,7 @@ services:
   portfolio-db:
     image: postgres:15-alpine
 
-    container_name: portfolio-db-container
+    container_name: portfolio-compose-db
 
     environment:
       - POSTGRES_DB=${PGDATABASE}

@@ -1,8 +1,8 @@
-# Docker Compose Introduction – Multi-Container Portfolio
+# Personal Portfolio Compose App
 
 ## Overview
 
-This project demonstrates how to run a PHP portfolio application and a PostgreSQL database using **Docker Compose**.
+This project demonstrates a personal portfolio application deployed using Docker Compose. The application uses PHP and Apache for the web layer and PostgreSQL for storing project information.
 
 Instead of manually creating and connecting individual containers, Docker Compose allows multiple services to be defined and managed from a single `docker-compose.yml` file.
 

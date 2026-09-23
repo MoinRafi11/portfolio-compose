@@ -1,0 +1,66 @@
+services:
+
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: portfolio-web
+
+    ports:
+      - "8084:80"
+
+    environment:
+      - PGHOST=portfolio-db
+      - PGDATABASE=${PGDATABASE}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGPORT=${PGPORT}
+
+    volumes:
+      - ./src:/var/www/html
+
+    networks:
+      - portfolio-network
+
+    depends_on:
+      portfolio-db:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+
+  portfolio-db:
+    image: postgres:15-alpine
+
+    container_name: portfolio-db-container
+
+    environment:
+      - POSTGRES_DB=${PGDATABASE}
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    networks:
+      - portfolio-network
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PGUSER} -d ${PGDATABASE}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+    restart: always
+
+
+volumes:
+  pgdata:
+    driver: local
+
+
+networks:
+  portfolio-network:
+    driver: bridge
